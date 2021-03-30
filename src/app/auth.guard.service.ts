@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 // import {CanActivate} from "@angular/router";
-import {ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot} from "@angular/router";
-import {AuthService} from "./auth.service";
+import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from "@angular/router";
+import {AuthService} from "./services/auth.service";
 import {map, take, tap} from "rxjs/operators";
 import {Observable} from "rxjs";
 
@@ -11,7 +11,7 @@ import {Observable} from "rxjs";
 
 export class AuthGuardService implements CanActivate {
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private router: Router) {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
@@ -20,10 +20,13 @@ export class AuthGuardService implements CanActivate {
       map(value => !!value),
       tap(value => {
         if (!value) {
-          console.log('You are not authorized')
+          this.router.navigate([''])
         }
       }),
       take(1))
 
   }
+
+
+
 }

@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from "@angular/router";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {AngularFireModule} from '@angular/fire';
 import {environment} from "../environments/environment";
 import {AngularFirestoreModule} from "@angular/fire/firestore";
 import {AngularFireAuthModule} from "@angular/fire/auth";
-import { ColumnComponent } from './column/column.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule} from '@angular/material/button';
 import { BoardComponent } from './board/board.component';
 import { LoginComponent } from './login/login.component';
+import { ColumnComponent } from './board/column/column.component';
+import { CardsComponent } from './board/cards/cards.component';
 
 
 
@@ -20,7 +20,9 @@ import { LoginComponent } from './login/login.component';
   declarations: [
     AppComponent,
     BoardComponent,
-    LoginComponent
+    LoginComponent,
+    ColumnComponent,
+    CardsComponent
   ],
   imports: [
     BrowserModule,
