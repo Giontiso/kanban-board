@@ -31,6 +31,12 @@ export class CrudService {
       take(1)
     );
   }
+  public deleteEntity(collectionName: string, id: string): Observable<any> {
+    return from(this.firestoreService.collection(collectionName).doc(id).delete()).pipe(
+      // map((value: DocumentReference) => value.id),
+      take(1)
+    );
+  }
 
   // public getobjectByRef(collectionName: string, id: string ) : Observable<any> {
   //   // const b = firebase.firestore().doc(collectionName + "/" + id);
@@ -46,15 +52,18 @@ export class CrudService {
 
 
 
-  public handleData<T>(collectionName: string): Observable<T[]> {
-    return this.firestoreService.collection(collectionName).snapshotChanges().pipe(
-      map((actions)=>
-        actions.map((reference) => {
-          const data: any = reference.payload.doc.data();
-          const id = reference.payload.doc.id;
-          return {id, ...data} as T;
-        })
-      )
-    );
-  }
+
+  // public handleData<T>(collectionName: string): Observable<T[]> {
+  //   return this.firestoreService.collection(collectionName).snapshotChanges().pipe(
+  //     map((actions)=>
+  //       actions.map((reference) => {
+  //         const data: any = reference.payload.doc.data();
+  //         const id = reference.payload.doc.id;
+  //         return {id, ...data} as T;
+  //       })
+  //     )
+  //   );
+  // }
+
+
 }

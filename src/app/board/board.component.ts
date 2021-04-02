@@ -28,7 +28,6 @@ export class BoardComponent implements OnInit {
   }
 
   columns: Column[] = [
-    {},
     {}
   ]
 

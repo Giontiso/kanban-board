@@ -4,7 +4,7 @@
   </div>
 
   <div class="button-add-wrapper">
-    <button class="button-add" (click)="addCard(cards )">
+    <button class="button-add" (click)="addCard()">
       +
     </button>
   </div>
@@ -13,6 +13,7 @@
   <div class="cards-wrapper">
     <app-cards
       *ngFor="let card of cards"
+      (click)="deleteCard(card.id)"
     ></app-cards>
   </div>
 

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+export interface Card {
+  id?: string
+}
+
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html',

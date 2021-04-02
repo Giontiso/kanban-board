@@ -24,12 +24,13 @@ export class AppComponent implements OnInit {
     // this.crudService.createEntity("cards", {name: "Superman"}).subscribe( value => this.crudService.updateObject("cards", value), {'name': 'test2'}).subscribe();
     // this.crudService.createEntity("cards", {name: "Superman"}).subscribe(value => this.crudService.getobjectByRef("cards", value).subscribe(value => console.log(value.data)))
     // this.crudService.createEntity("cards", {name: "Superman"}).subscribe(value => this.crudService.updateObject("cards", value).subscribe(value => console.log(value.data)))
+    this.crudService.createEntity("cards", {name: "Superman"}).subscribe(value => console.log(value))
   }
 
 
   ngOnInit() {
     // this.firestore.collection("heroes").valueChanges().subscribe(value => console.log(value))
-    this.crudService.getData("cards").subscribe(value => console.log(value));
+    // this.crudService.getData("cards").subscribe(value => console.log(value));
 
   }
 
